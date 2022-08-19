@@ -32,7 +32,8 @@ def adds_restaurant_ratings(filename):
 	print(f"{restaurant} is rated at {rating}")
 
 def user_choices():
-	choices = input("Would you like to A) See all ratings B) Add restaurant or C) Quit ")
+	choices = input("Would you like to A) See all ratings B) Add restaurant or \
+C) Quit ")
 	if choices == "A":
 		print_restaurant_ratings("scores.txt")
 
