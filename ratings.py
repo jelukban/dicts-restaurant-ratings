@@ -1,5 +1,7 @@
 """Restaurant rating lister."""
-def print_restaurant_ratings(filename):
+import sys
+
+def print_restaurant_ratings(filename = sys.argv[1]):
 	restaurants = open(filename)
 	restaurant_and_rating = {}
 
@@ -17,9 +19,10 @@ def print_restaurant_ratings(filename):
 	return restaurant_and_rating
 
 
-def adds_restaurant_ratings(filename):
+def adds_restaurant_ratings():
+	restaurant = input("Enter a restaurant name: ")
+
 	while True:
-		restaurant = input("Enter a restaurant name: ")
 		rating = int(input("Enter a rating name: "))
 
 		if rating > 5 or rating < 1:
@@ -27,7 +30,7 @@ def adds_restaurant_ratings(filename):
 		else:
 			break
 
-	restaurant_and_ratings = print_restaurant_ratings(filename)
+	restaurant_and_ratings = print_restaurant_ratings()
 	restaurant_and_ratings[restaurant] = rating
 	print(f"{restaurant} is rated at {rating}")
 
@@ -35,13 +38,13 @@ def user_choices():
 	choices = input("Would you like to A) See all ratings B) Add restaurant or \
 C) Quit ")
 	if choices == "A":
-		print_restaurant_ratings("scores.txt")
+		print_restaurant_ratings()
 
 	elif choices == "B":
-		adds_restaurant_ratings("scores.txt")
+		adds_restaurant_ratings()
 
 	elif choices == "C":
 		return None
 
-print(user_choices())
+user_choices()
 
